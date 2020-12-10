@@ -44,4 +44,9 @@ public void modify(BoardVO vo) throws Exception {
 	sql.update(namespace + ".modify", vo);
 }
 
+// 게시물 삭제
+public void delete(int bno) throws Exception {
+	sql.delete(namespace + ".delete", bno);
+}
+
 }
