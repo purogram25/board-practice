@@ -1,5 +1,6 @@
 package com.board.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -48,5 +49,23 @@ public void modify(BoardVO vo) throws Exception {
 public void delete(int bno) throws Exception {
 	sql.delete(namespace + ".delete", bno);
 }
+
+// 게시물 총 갯수
+@Override
+public int count() throws Exception {
+	return sql.selectOne(namespace + ".count");
+}
+
+// 게시물 목록 + 페이징
+@Override
+public List<BoardVO> listPage(int displayPost, int postNum) throws Exception {
+	
+		HashMap<String, Integer> data = new HashMap<String, Integer>();
+		
+		data.put("displayPost", displayPost);
+		data.put("postNum", postNum);
+		
+		return sql.selectList(namespace + ".listPage", data);
+	}
 
 }

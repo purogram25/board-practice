@@ -12,7 +12,7 @@
 	<%@ include file="../include/nav.jsp" %>
 </div>
 
-<form method ="post">
+<form method="post">
 
 <label>제목</label>
 <input type="text" name="title" /><br />
